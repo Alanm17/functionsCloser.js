@@ -177,3 +177,29 @@ const poll = {
 
 const theanswr = poll.registerNewAnswer.bind(poll);
 document.querySelector('.poll').addEventListener('click', theanswr);
+
+//============================>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Immediately invoked function expressions>>>>>
+//a function that is called immediately after it is defined.IIFEs are commonly used to create private scope in JavaScript, allowing variables and functions to be encapsulated and inaccessible from outside the function.
+
+(function () {
+  console.log('this is just for testing IIFE');
+})();
+
+//closures A closure is like a backpack that a function carries around wherever it goes. This backpack has all the variables that were present in the environment where the function was created.A closure gives a function access to all the variables of its parent function, even after that parent function has returned. The function keeps a reference to its outer scope, which preserves the scope chain throughout time.
+const secureCheck = function () {
+  let chekNum = 0;
+  return function () {
+    chekNum++;
+    console.log(`${chekNum} times`);
+  };
+};
+
+const book = secureCheck();
+secureCheck();
+secureCheck();
+book();
+book();
+book();
+book();
+book();
+book();
